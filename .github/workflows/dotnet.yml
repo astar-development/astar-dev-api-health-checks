@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
     env:
       ProjectName: 'AStar.Dev.Api.HealthChecks'
-      RepositoryName: 'astar-dev-api-healthchecks'
+      RepositoryName: 'astar-dev-api-health-checks'
     steps:
       - name: Set up JDK
         uses: actions/setup-java@v4.4.0
