@@ -1,7 +1,12 @@
-﻿namespace AStar.Dev.Api.HealthChecks;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace AStar.Dev.Api.HealthChecks;
+
+[ExcludeFromCodeCoverage]
 internal static class Program
 {
-    private static void Main() =>
+    private static void Main()
+    {
         Console.WriteLine("Hello, World!");
+    }
 }
