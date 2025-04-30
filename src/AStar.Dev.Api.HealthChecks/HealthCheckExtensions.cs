@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -13,7 +14,7 @@ public static class HealthCheckExtensions
                                                                           {
                                                                               WriteIndented          = true,
                                                                               DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                                                                              PropertyNamingPolicy   = JsonNamingPolicy.CamelCase,
+                                                                              PropertyNamingPolicy   = JsonNamingPolicy.CamelCase
                                                                           };
 
     /// <summary>
@@ -31,9 +32,9 @@ public static class HealthCheckExtensions
                                     {
                                         [HealthStatus.Degraded]  = StatusCodes.Status424FailedDependency,
                                         [HealthStatus.Healthy]   = StatusCodes.Status200OK,
-                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError,
+                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError
                                     },
-                                    Predicate = _ => true,
+                                    Predicate = _ => true
                                 });
 
         _ = app.MapHealthChecks("/health/ready",
@@ -44,39 +45,40 @@ public static class HealthCheckExtensions
                                     {
                                         [HealthStatus.Degraded]  = StatusCodes.Status424FailedDependency,
                                         [HealthStatus.Healthy]   = StatusCodes.Status200OK,
-                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError,
+                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError
                                     },
-                                    Predicate = _ => true,
+                                    Predicate = _ => true
                                 });
 
         return app;
     }
 
+    [ExcludeFromCodeCoverage]
     private static Task WriteHealthCheckResponseAsync(
         HttpContext  httpContext,
         HealthReport healthReport)
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
 
-        IEnumerable<HealthStatusResponse> dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
-                                                                                                               {
-                                                                                                                   Name        = entry.Key,
-                                                                                                                   Description = entry.Value.Description,
-                                                                                                                   Status      = entry.Value.Status.ToString(),
-                                                                                                                   DurationInMilliseconds = entry.Value.Duration
-                                                                                                                                                 .TotalMilliseconds,
-                                                                                                                   Data      = entry.Value.Data,
-                                                                                                                   Exception = entry.Value.Exception?.Message,
-                                                                                                               });
+        var dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
+                                                                                 {
+                                                                                     Name        = entry.Key,
+                                                                                     Description = entry.Value.Description,
+                                                                                     Status      = entry.Value.Status.ToString(),
+                                                                                     DurationInMilliseconds = entry.Value.Duration
+                                                                                                                   .TotalMilliseconds,
+                                                                                     Data      = entry.Value.Data,
+                                                                                     Exception = entry.Value.Exception?.Message
+                                                                                 });
 
         var healthCheckResponse = new
                                   {
                                       Status                                = healthReport.Status.ToString(),
                                       TotalCheckExecutionTimeInMilliseconds = healthReport.TotalDuration.TotalMilliseconds,
-                                      DependencyHealthChecks                = dependencyHealthChecks,
+                                      DependencyHealthChecks                = dependencyHealthChecks
                                   };
 
-        string responseString = JsonSerializer.Serialize(healthCheckResponse, JsonSerializerOptions);
+        var responseString = JsonSerializer.Serialize(healthCheckResponse, JsonSerializerOptions);
 
         return httpContext.Response.WriteAsync(responseString);
     }

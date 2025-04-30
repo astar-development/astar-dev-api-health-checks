@@ -2,7 +2,7 @@
 
 /// <summary>
 /// </summary>
-public sealed class HealthStatusResponse
+public sealed record HealthStatusResponse
 {
     /// <summary>
     /// </summary>
