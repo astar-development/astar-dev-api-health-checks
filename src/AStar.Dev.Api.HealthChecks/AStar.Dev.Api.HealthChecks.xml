@@ -6,15 +6,25 @@
     <members>
         <member name="T:AStar.Dev.Api.HealthChecks.HealthCheckExtensions">
             <summary>
-                The <see cref="T:AStar.Dev.Api.HealthChecks.HealthCheckExtensions" /> class contains the relevant method(s) to configure the endpoints.
+                The
+                <see cref="T:AStar.Dev.Api.HealthChecks.HealthCheckExtensions"/>
+                class contains the relevant method(s) to configure the endpoints.
             </summary>
         </member>
         <member name="M:AStar.Dev.Api.HealthChecks.HealthCheckExtensions.ConfigureHealthCheckEndpoints(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
-                The <see cref="M:AStar.Dev.Api.HealthChecks.HealthCheckExtensions.ConfigureHealthCheckEndpoints(Microsoft.AspNetCore.Builder.WebApplication)" /> method will add a basic health/live and health/ready endpoint.
+                The
+                <see cref="M:AStar.Dev.Api.HealthChecks.HealthCheckExtensions.ConfigureHealthCheckEndpoints(Microsoft.AspNetCore.Builder.WebApplication)"/>
+                method will add a basic health/live and health/ready endpoint.
             </summary>
-            <param name="app">An instance of <see cref="T:Microsoft.AspNetCore.Builder.WebApplication" /> to configure</param>
-            <returns>The original <see cref="T:Microsoft.AspNetCore.Builder.WebApplication" /> to facilitate further method chaining</returns>
+            <param name="app">An instance of
+                <see cref="T:Microsoft.AspNetCore.Builder.WebApplication"/>
+                to configure
+            </param>
+            <returns>The original
+                <see cref="T:Microsoft.AspNetCore.Builder.WebApplication"/>
+                to facilitate further method chaining
+            </returns>
         </member>
         <member name="T:AStar.Dev.Api.HealthChecks.HealthStatusResponse">
             <summary>
@@ -55,7 +65,9 @@
             </summary>
             <param name="cancellationToken">The token to optionally use to cancel the operation</param>
             <returns>
-                An instance of the <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> class wrapping an instance of the <see href="HealthStatusResponse"></see> class when successful (containing the text representation of
+                An instance of the
+                <see cref="T:CSharpFunctionalExtensions.Result"/>
+                class wrapping an instance of the <see href="HealthStatusResponse"></see> class when successful (containing the text representation of
                 the API Health Status). When the call fails, a string error message will be returned
             </returns>
         </member>

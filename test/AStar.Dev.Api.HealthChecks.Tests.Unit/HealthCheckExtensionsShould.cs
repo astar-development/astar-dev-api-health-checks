@@ -6,7 +6,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 namespace AStar.Dev.Api.HealthChecks;
 
 [TestSubject(typeof(HealthCheckExtensions))]
-public class HealthCheckExtensionsShould()
+public class HealthCheckExtensionsShould
 {
     [Fact]
     public void ConfigureTheHealthCheckEndpoints()
