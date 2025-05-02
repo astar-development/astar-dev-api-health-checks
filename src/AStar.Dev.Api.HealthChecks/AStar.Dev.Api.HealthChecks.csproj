@@ -43,7 +43,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
+        <PackageReference Include="CSharpFunctionalExtensions" Version="3.6.0"/>
         <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.1.0"/>
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.4"/>
         <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.4"/>
@@ -60,7 +60,7 @@
         </None>
         <None Update="Readme.md">
             <Pack>true</Pack>
-            <PackagePath></PackagePath>
+            <PackagePath>\</PackagePath>
         </None>
     </ItemGroup>
 
