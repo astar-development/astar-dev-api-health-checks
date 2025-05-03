@@ -62,13 +62,12 @@ public static class HealthCheckExtensions
 
         var dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
                                                                                  {
-                                                                                     Name        = entry.Key,
-                                                                                     Description = entry.Value.Description,
-                                                                                     Status      = entry.Value.Status.ToString(),
-                                                                                     DurationInMilliseconds = entry.Value.Duration
-                                                                                                                   .TotalMilliseconds,
-                                                                                     Data      = entry.Value.Data,
-                                                                                     Exception = entry.Value.Exception?.Message
+                                                                                     Name                   = entry.Key,
+                                                                                     Description            = entry.Value.Description,
+                                                                                     Status                 = entry.Value.Status.ToString(),
+                                                                                     DurationInMilliseconds = entry.Value.Duration.TotalMilliseconds,
+                                                                                     Data                   = entry.Value.Data,
+                                                                                     Exception              = entry.Value.Exception?.Message
                                                                                  });
 
         var healthCheckResponse = new

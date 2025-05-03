@@ -10,7 +10,15 @@ public class HealthStatusResponseShould
     public void ContainTheExpectedProperties()
     {
         new HealthStatusResponse
-            { Name = "Test Name", Description = "Test Description", DurationInMilliseconds = 123, Data = new Dictionary<string, object>(), Exception = "Test Exception", Status = "OK" }
-            .ToJson().ShouldMatchApproved();
+            {
+                Name                   = "Test Name",
+                Description            = "Test Description",
+                DurationInMilliseconds = 123,
+                Data                   = new Dictionary<string, object>(),
+                Exception              = "Test Exception",
+                Status                 = "OK"
+            }
+            .ToJson()
+            .ShouldMatchApproved();
     }
 }
