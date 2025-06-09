@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
@@ -45,8 +45,8 @@
     <ItemGroup>
         <PackageReference Include="CSharpFunctionalExtensions" Version="3.6.0"/>
         <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.1.0"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.4"/>
-        <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.4"/>
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.5"/>
+        <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.5"/>
     </ItemGroup>
 
     <ItemGroup>
