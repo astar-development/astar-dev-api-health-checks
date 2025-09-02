@@ -14,8 +14,8 @@ public class HealthCheckExtensionsShould
         var webApplication = WebApplication.CreateBuilder();
         webApplication.Services.AddHealthChecks();
 
-        var sut =  webApplication.Build().ConfigureHealthCheckEndpoints();
+        var sut = webApplication.Build().ConfigureHealthCheckEndpoints();
 
-        sut.Services.GetServices< HealthCheckService>().Count().ShouldBe(1);
+        sut.Services.GetServices<HealthCheckService>().Count().ShouldBe(1);
     }
 }

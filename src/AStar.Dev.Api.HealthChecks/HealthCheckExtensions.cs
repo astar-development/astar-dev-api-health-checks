@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -53,7 +52,6 @@ public static class HealthCheckExtensions
         return app;
     }
 
-    [ExcludeFromCodeCoverage]
     private static Task WriteHealthCheckResponseAsync(
         HttpContext  httpContext,
         HealthReport healthReport)
@@ -62,12 +60,13 @@ public static class HealthCheckExtensions
 
         var dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
                                                                                  {
-                                                                                     Name                   = entry.Key,
-                                                                                     Description            = entry.Value.Description,
-                                                                                     Status                 = entry.Value.Status.ToString(),
-                                                                                     DurationInMilliseconds = entry.Value.Duration.TotalMilliseconds,
-                                                                                     Data                   = entry.Value.Data,
-                                                                                     Exception              = entry.Value.Exception?.Message
+                                                                                     Name        = entry.Key,
+                                                                                     Description = entry.Value.Description,
+                                                                                     Status      = entry.Value.Status.ToString(),
+                                                                                     DurationInMilliseconds = entry.Value.Duration
+                                                                                                                   .TotalMilliseconds,
+                                                                                     Data      = entry.Value.Data,
+                                                                                     Exception = entry.Value.Exception?.Message
                                                                                  });
 
         var healthCheckResponse = new

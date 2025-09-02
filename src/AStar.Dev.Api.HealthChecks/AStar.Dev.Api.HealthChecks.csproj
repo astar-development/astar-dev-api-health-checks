@@ -1,36 +1,54 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
-        <Company>AStar</Company>
-        <Copyright>AStar Development, 2025</Copyright>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>AStar Developement, Jason Barden</Authors>
+        <Company>AStar Development</Company>
+        <Copyright>AStar Developement, 2025</Copyright>
         <Description>
             This package contains atleast one extension method for setting up the HealthChecks.
 
             Over time, additional methods will be added.
         </Description>
-        <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
-        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-        <GenerateDocumentationFile>True</GenerateDocumentationFile>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <IncludeSymbols>True</IncludeSymbols>
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
         <IsPackable>true</IsPackable>
-        <Nullable>enable</Nullable>
-        <PackageIcon>AStar.png</PackageIcon>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageIcon>astar.png</PackageIcon>
+        <PackageId>AStar.Dev.Functional.Extensions</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/astar-development/astar-dev-api-health-checks</PackageProjectUrl>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
-        <PackageReleaseNotes>Drop AStar.Dev.Function.Extensions for CSharpFunctionalExtensions</PackageReleaseNotes>
+        <PackageReleaseNotes>Update icon.</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageTags>ASP.Core HealthChecks;HealthChecks</PackageTags>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/astar-development/astar-dev-api-health-checks.git</RepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <TargetFramework>net9.0</TargetFramework>
-        <Title>AStar API HealthChecks</Title>
-        <Version>0.4.3</Version>
+        <Title>AStar Dev API HealthChecks</Title>
+        <Version>0.4.4</Version>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="LICENSE" Pack="true" PackagePath=""/>
+        <None Include="Readme.md" Pack="true" PackagePath=""/>
+        <None Include="astar.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
+        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
+        <PackageReference Include="AStar.Dev.Api.Usage.Sdk" Version="0.1.0"/>
+    </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
@@ -43,25 +61,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CSharpFunctionalExtensions" Version="3.6.0"/>
-        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.1.0"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.4"/>
-        <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.4"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="..\..\AStar.png">
-            <Pack>True</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-        <None Include="..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-        <None Update="Readme.md">
-            <Pack>true</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.8"/>
+        <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.8"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8"/>
     </ItemGroup>
 
 </Project>
