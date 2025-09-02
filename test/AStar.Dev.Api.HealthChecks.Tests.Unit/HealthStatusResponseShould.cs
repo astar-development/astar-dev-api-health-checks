@@ -7,8 +7,7 @@ namespace AStar.Dev.Api.HealthChecks;
 public class HealthStatusResponseShould
 {
     [Fact]
-    public void ContainTheExpectedProperties()
-    {
+    public void ContainTheExpectedProperties() =>
         new HealthStatusResponse
             {
                 Name                   = "Test Name",
@@ -20,5 +19,4 @@ public class HealthStatusResponseShould
             }
             .ToJson()
             .ShouldMatchApproved();
-    }
 }
